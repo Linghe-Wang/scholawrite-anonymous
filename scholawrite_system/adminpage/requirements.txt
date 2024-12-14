@@ -1,0 +1,7 @@
+pymongo
+flask
+rich
+pylatexenc
+python-dateutil
+diff_match_patch
+plotly==5.22.0
