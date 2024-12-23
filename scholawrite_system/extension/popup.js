@@ -282,20 +282,6 @@ async function postWriterText(task, activity) {
             console.log(message);
             return message
         }
-        else if (task === 2){
-            const response = await fetch(serverURL + "/ids", {
-                // mode: 'no-cors',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                method: 'POST',
-                body: JSON.stringify(activity),
-            })
-            const message = await response.json();
-            console.log(message);
-            return message
-        }
     }
     catch (err){
         console.log('failed to fetch');
