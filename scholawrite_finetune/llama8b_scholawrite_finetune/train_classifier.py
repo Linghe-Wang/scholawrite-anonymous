@@ -22,20 +22,8 @@ def main():
   print(accelerate.Accelerator().device)
   print(accelerate.Accelerator().state)
 
-  #if (args.MODEL_TYPE == "llm"):
-  #  #tokenizer = load_tokenizer(args.MODEL_NAME)
-  #  #model = load_model(args.MODEL_NAME)
-  #elif(args.MODEL_TYPE == "small-lm"):
-  #  raise Exception("not implemented")
-  #else:
-  #  raise Exception("not implemented")
-
   full_ds = load_dataset("minnesotanlp/scholawrite", revision="anonymous_data")
 
-  #full_ds = DatasetDict({
-  #  'train': full_ds["train"].select(range(100)),
-  #  'test': full_ds["test"].select(range(100))
-  #})
 
   RELEVANT_CLASSES = set(full_ds["train"]["label"]).union(set(full_ds["test"]["label"]))
 
@@ -71,7 +59,6 @@ def main():
     labels = []
 
     for input_, output_ in zip(inputs, outputs):
-      #text = generate_train_template(input_, output)
       text = class_prompt_train(input_, output_)
       text = tokenizer.apply_chat_template(text, tokenize=False, add_generation_prompt=False)
       texts.append(text)
@@ -89,7 +76,6 @@ def main():
     train_dataset = full_ds["train"],
     dataset_text_field = "text",
     max_seq_length = MAX_GEN_LENGTH,
-    #data_collator = DataCollatorForSeq2Seq(tokenizer = tokenizer),
     data_collator = DataCollatorForLanguageModeling(tokenizer = tokenizer, mlm=False),
     dataset_num_proc = 2,
     packing = True,
@@ -119,8 +105,8 @@ def main():
 
   train_results = trainer.train()
 
-  #trainer.log_metrics("train", train_results.metrics)
-  #trainer.save_metrics("train", train_results.metrics)
+  trainer.log_metrics("train", train_results.metrics)
+  trainer.save_metrics("train", train_results.metrics)
 
   print("\n\n")
   print(trainer.state.log_history)
@@ -128,7 +114,6 @@ def main():
 
   trainer.save_state()
 
-  #merged_model = model.merge_and_unload()
   model.save_pretrained_merged(f"{args.MODEL_SAVE_DIR}", tokenizer, save_method = "merged_16bit")
 
 if __name__ == "__main__":
