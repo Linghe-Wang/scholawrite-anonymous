@@ -16,10 +16,4 @@ RUN curl -s https://ngrok-agent.s3.amazonaws.com/ngrok.asc | tee /etc/apt/truste
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace/eval_tool
-COPY requirements.txt ./requirements.txt
-
-RUN ls
-RUN ls ..
-
-RUN pip install --break-system-packages -r requirements.txt
 
