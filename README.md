@@ -118,17 +118,21 @@ docker-compose up
 The fine-tuning uses **Unsloth** and **QLoRA**. Ensure your GPU has at least **16GB VRAM**.
 
 ### Step 1: Set Up the Environment
-
 1. Navigate to the root folder of `ScholaWrite-Public`.
-2. Create a Docker container for fine-tuning and inference:
+2. Create an `.env` file with following content
+    ```bash
+    HUGGINGFACE_TOKEN="<Your Hugging Face access token>"
+    OPEN_AI_API="<Your OpenAI API key>"
+    ```
+3. Create a Docker container for fine-tuning and inference:
     ```bash
     docker run --name scholawrite_container_2 --gpus all -dt -v ./:/workspace --ipc=host pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel bash
     ```
-3. Access the Docker container:
+4. Access the Docker container:
     ```bash
     docker exec -it scholawrite_container_2 bash
     ```
-4. Install required Python packages:
+5. Install required Python packages:
     ```bash
     pip install accelerate python-dotenv huggingface-hub datasets transformers trl unsloth diff_match_patch
     ```
