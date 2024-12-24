@@ -12,10 +12,12 @@ load_dotenv()
 
 login(os.getenv("HUGGINGFACE_TOKEN"))
 
+output_folder_name = "llama8_DEC8_output"
+
 def setup(seed_name):
   global generation_dir, intention_dir, generation_raw_dir, intention_raw_dir, path_to_seed
 
-  output_dir = os.path.join("/users/1/wang9257/scholawrite/llama8_DEC8_output", seed_name)
+  output_dir = os.path.join(f"../../{output_folder_name}", seed_name)
 
   generation_dir = f"{output_dir}/generation"
   intention_dir = f"{output_dir}/intention"
@@ -29,7 +31,7 @@ def setup(seed_name):
   os.makedirs(generation_raw_dir, exist_ok=True)
   os.makedirs(intention_raw_dir, exist_ok=True)
 
-  path_to_seed = os.path.join("/users/1/wang9257/scholawrite/seeds", f"{seed_name}.txt")
+  path_to_seed = os.path.join("../../seeds", f"{seed_name}.txt")
 
 def load_seed(fname):
   with open(fname, 'r') as file:
