@@ -10,6 +10,8 @@ from prompt import text_gen_prompt, class_prompt
 
 load_dotenv()
 
+login(os.getenv("HUGGINGFACE_TOKEN"))
+
 output_folder_name = "llama3_meta_DEC8_output"
 
 def setup(seed_name):
