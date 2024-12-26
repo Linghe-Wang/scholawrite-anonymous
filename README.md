@@ -201,25 +201,26 @@ Navigate to the appropriate folder inside the Docker container.
     - `llama3b_scholawrite_finetune`: For running fine-tuned `unsloth/Llama-3.1-3B-Instruct-bnb-4bit`.
 
 - **`meta_inference`**:
-    - `llama8b_meta_finetune`: For baseline `unsloth/Llama-3.2-8B-Instruct-bnb-4bit`.
-    - `llama3b_meta_finetune`: For baseline `unsloth/Llama-3.1-3B-Instruct-bnb-4bit`.
+    - `llama8b_meta_instruction`: For baseline `unsloth/Llama-3.2-8B-Instruct-bnb-4bit`.
+    - `llama3b_meta_instruction`: For baseline `unsloth/Llama-3.1-3B-Instruct-bnb-4bit`.
 
 
 ### Step 3: Start Inference
 
-#### For `llama3b_scholawrite_finetune`, `meta_inference/llama8b_meta_finetune`, or `meta_inference/llama3b_meta_finetune`
+#### For `scholawrite_finetune/llama*` and `meta_inference/*`
 
-- **Iterative Writing**:
-  1. Ensure the model name on lines 65 and 80 of `iterative_writing.py` matches the path to the model or its name on Hugging Face.
-  2. On line 15 of `iterative_writing.py`, specify a unique `output_folder_name` to avoid overwriting existing outputs.
-  3. Run the script:
-      ```bash
-      python3 iterative_writing.py
-      ```
-  4. Outputs will be saved in `output_folder_name/seed name/generation` and `output_folder_name/seed name/intention` folders under the `ScholaWrite-Public` root directory.
-    - `seed name`: filenames of seed documents (please refer to `ScholaWrite-Public/seeds`), here are all possible seed names: seed1, seed2, seed3, and seed4.
-   - `output_folder_name/seed name/generation`: Stores the model's writing output, with one text file per iteration (e.g., 100 iterations result in 100 text files).
-   - `output_folder_name/seed name/intention`: Stores the model's intentions corresponding to each writing output, with one text file per iteration (e.g., 100 iterations result in 100 text files).
+- **Iterative Writing**:  
+    *Note: `scholawrite_finetune/llama3b_scholawrite_finetune` does not have an iterative writing script.*
+    1. Ensure the model name on lines 65 and 80 of `iterative_writing.py` matches the path to the model or its name on Hugging Face.
+    2. On line 15 of `iterative_writing.py`, specify a unique `output_folder_name` to avoid overwriting existing outputs.
+    3. Run the script:
+        ```bash
+        python3 iterative_writing.py
+        ```
+    4. Outputs will be saved in `output_folder_name/seed name/generation` and `output_folder_name/seed name/intention` folders under the `ScholaWrite-Public` root directory.
+        - `seed name`: filenames of seed documents (please refer to `ScholaWrite-Public/seeds`), here are all possible seed names: seed1, seed2, seed3, and seed4.
+        - `output_folder_name/seed name/generation`: Stores the model's writing output, with one text file per iteration (e.g., 100 iterations result in 100 text files).
+        - `output_folder_name/seed name/intention`: Stores the model's intentions corresponding to each writing output, with one text file per iteration (e.g., 100 iterations result in 100 text files).
 
 - **Classification**:
   1. Ensure the model name on line 40 of `classification.py` matches the path to the model or its name on Hugging Face.
@@ -230,7 +231,7 @@ Navigate to the appropriate folder inside the Docker container.
   3. A CSV file with classification results will be generated in the current directory.
   4. True label is in the column 'label' and predicted label is in the column 'predicted'
 
-#### For `bert_finetune`
+#### For `scholawrite_finetunebert_finetune`
 - **Classification**:
     1. Run the script:
         ```bash
