@@ -25,7 +25,7 @@ This branch contains following folders:
 2. Go to this [site](https://www.mongodb.com/try/download/compass) to download the MongoDB Compass, it provides a user friendly GUI that allows you to view/find/manage the documents in the database. MongoDB Compass also provide mongoDB Shell feature.
 3. Install the [Database Tools](https://www.mongodb.com/docs/database-tools/installation/installation/#installing-the-database-tools) based on your OS so that you can backup and restore your database.
 4. Run the MongoDB on default port 27017.
-5. In the database named `flask_db` and collection `activity` inside it will be created once you run the ScholaWrite System.
+5. The database named `flask_db` and collection `activity` inside it will be created once you run the ScholaWrite System.
 
 ### Step 2, setup the Google OAuth
 
