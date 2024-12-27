@@ -1,5 +1,23 @@
 ﻿# ScholaWrite-Public
 
+## Abstract
+Writing is a cognitively active task involving continuous decision-making, heavy use of working memory, and frequent switching between multiple activities.
+Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge while meeting high academic standards.
+To understand writers' cognitive thinking process, one should fully decode the *end-to-end writing data* (from scratch to final manuscript) and understand their complex cognitive mechanisms in scientific writing.
+We introduce <span style="font-variant: small-caps;">ScholaWrite</span> dataset, the first-of-its-kind keystroke logs of an end-to-end scholarly writing process, with thorough annotations of cognitive writing intentions behind each keystroke. 
+Our dataset includes $\LaTeX$-based keystroke data from five preprints with nearly 63K total text changes and annotations across 4 months of paper writing.
+Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists.
+
+
+## About
+This branch contains following folders:
+- `scholawrite_system`: ScholaWrite system which includes data collection backend, admin page, and annotation page.
+- `scholawrite_finetune`: Fine-tuning scripts of BERT, RoBERTa, Llama-3b-instruct, and Llama-8b-instruct on our dataset.
+- `gpt4o`: Scripts for running GPT-4o on iterative writing and intention prediction.
+- `meta_inference`: Scripts for running Llama-3b-instruct and Llama-8b-instruct baseline model on iterative writing and intention prediction.
+- `eval_tool`: Webpage for visualizing Llama-8b-instruct (baseline) and Llama-8b-SW iterative writing output for human evaluation.
+- `analysis`: Scripts for computing consine similarity between seed documents and final outputs of iterative writing, lexical diversity of final outputs from iterative writing, f1 scores in intention prediction task, and intention diversity/converage in the iterative writing.
+
 ## Run ScholaWrite System
 
 ### Step 1, setup the MongoDB
@@ -54,6 +72,7 @@ Run the following command:
 ```bash
 docker-compose up
 ```
+The data collection backend, admin page, and annotation page will be running and assesible to the public through Ngrok.
 
 ---
 
