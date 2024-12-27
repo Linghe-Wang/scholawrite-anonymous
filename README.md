@@ -2,7 +2,14 @@
 
 ## Run ScholaWrite System
 
-### Step 1, setup the Google OAuth
+### Step 1, setup the MongoDB
+1. Go to this [site](https://www.mongodb.com/docs/manual/administration/install-community/) to download and install the MongoDB on your computer.
+2. Go to this [site](https://www.mongodb.com/try/download/compass) to download the MongoDB Compass, it provides a user friendly GUI that allows you to view/find/manage the documents in the database. MongoDB Compass also provide mongoDB Shell feature.
+3. Install the [Database Tools](https://www.mongodb.com/docs/database-tools/installation/installation/#installing-the-database-tools) based on your OS so that you can backup and restore your database.
+4. Run the MongoDB on default port 27017.
+5. In the database named `flask_db` and collection `activity` inside it will be created once you run the ScholaWrite System.
+
+### Step 2, setup the Google OAuth
 
 1. Make sure you have a Google Cloud [project](https://developers.google.com/workspace/guides/create-project).
 2. Follow the [steps](https://developers.google.com/workspace/guides/create-credentials#oauth-client-id) to create an OAuth client for a **Desktop app**.
@@ -15,7 +22,7 @@
        - <folder path you put the token.json>/google_OAuth2/token.json:/usr/local/src/scholawrite/flaskapp/token.json
    ```
 
-### Step 2, setup your Google Sheet
+### Step 3, setup your Google Sheet
 
 1. Make sure you have a Google Sheet.
 2. Add all Overleaf project IDs you want the system to monitor. The IDs should be on consecutive rows in the same column (e.g., `A1:A9`).
@@ -24,7 +31,7 @@
 5. Go to line 23 of `scholawrite_system/App.py`.
 6. Replace `SAMPLE_RANGE_NAME` with the actual range in the Google Sheet where you stored the Overleaf project IDs.
 
-### Step 3, setup Ngrok
+### Step 4, setup Ngrok
 
 1. You need either:
    - One Ngrok account that supports **3 Static Domains** and **3 Secure Tunnel Agents**, or
