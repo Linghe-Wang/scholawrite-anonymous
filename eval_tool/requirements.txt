@@ -1,4 +1,0 @@
-flask
-diff-match-patch
-load_dotenv
-tqdm
