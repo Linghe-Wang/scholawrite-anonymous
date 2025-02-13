@@ -130,5 +130,5 @@ window.addEventListener('DOMContentLoaded', function() {
 function changeSeed(event){
     event.preventDefault();
     const data = Object.fromEntries(new FormData(event.target).entries());
-    window.location.replace(window.location.origin + '/scholawrite-anonymous/model_outputs/'+data.seed_doc+".html")
+    window.location.replace(window.location.origin + 'w/scholawrite-anonymous/model_outputs/'+data.seed_doc+".html")
 }
