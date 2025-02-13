@@ -4,9 +4,9 @@
 Writing is a cognitively demanding task involving continuous decision-making, heavy use of working memory, and frequent switching between multiple activities. 
 Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge.
 To fully understand writers' cognitive thought process, one should fully decode the <i>end-to-end writing data</i> (from individual ideas to final manuscript) and understand their complex cognitive mechanisms in scholarly writing.
-We introduce <span style="font-variant: small-caps;">ScholaWrite</span> dataset, a first-of-its-kind keystroke corpus of an end-to-end scholarly writing process for complete manuscripts, with thorough annotations of cognitive writing intentions behind each keystroke. 
-Our dataset includes \LaTeX-based keystroke data from five preprints with nearly 62K total text changes and annotations across 4 months of paper writing.
-<span style="font-variant: small-caps;">ScholaWrite</span> shows promising usability and applications (e.g., iterative self-writing) for the future development of AI writing assistants for academic research, which necessitate complex methods beyond LLM prompting.
+We introduce <b>ScholaWrite</b> dataset, a first-of-its-kind keystroke corpus of an end-to-end scholarly writing process for complete manuscripts, with thorough annotations of cognitive writing intentions behind each keystroke. 
+Our dataset includes $\LaTeX$-based keystroke data from five preprints with nearly 62K total text changes and annotations across 4 months of paper writing.
+<b>ScholaWrite</b> shows promising usability and applications (e.g., iterative self-writing) for the future development of AI writing assistants for academic research, which necessitate complex methods beyond LLM prompting.
 Our experiments clearly demonstrated the importance of collection of end-to-end writing data, rather than the final manuscript, for the development of future writing assistants to support the cognitive thinking process of scientists.
 
 
