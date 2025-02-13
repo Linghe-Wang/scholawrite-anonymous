@@ -168,7 +168,7 @@
       <!-- Dataset videos end -->
 
     <!--- Extension Start -->
-    <section class="section hero is-small is-light">
+    <section class="section hero is-light">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-full">
@@ -186,11 +186,11 @@
               
               <div class="level-set has-text-justified">
 
-                <p>We designed and implemented a Chrome extension, which enables the real-time collection of keystroke trajectories in the Overleaf platform without disturb participants' writing process. You can browse the extension code through this <a href="https://github.com/minnesotanlp/scholawrite/tree/main/scholawrite_system/extension"><u><b>link</b></u></a>.</p>
+                <p>We designed and implemented a Chrome extension, which enables the real-time collection of keystroke trajectories in the Overleaf platform without disturb participants' writing process. You can browse the extension code through this <a href="https://anonymous.4open.science/r/scholawrite/scholawrite_system/extension/popup.html" target="_blank" style="color:#3273dc"><u><b>link</b></u></a>.</p>
                 <b>To install and run this extention please do the following:</b>
                 <ol>
                   <li>
-                    <p>Start the backend by following procedure in <a href="https://github.com/minnesotanlp/scholawrite?tab=readme-ov-file#run-scholawrite-system"><u>Run ScholaWrite System</u></a> section, and setup URL in Chrome extension by completing step 1 in <a href="https://github.com/minnesotanlp/scholawrite/tree/main?tab=readme-ov-file#setup-the-extension"><u>Setup the Extention</u></a> section</p>
+                    <p>Start the backend by following procedure in <a href="https://anonymous.4open.science/r/scholawrite/README.md" target="_blank" style="color:#3273dc"><u>Run ScholaWrite System</u></a> section, and setup URL in Chrome extension by completing step 1 in <a href="https://anonymous.4open.science/r/scholawrite/README.md" target="_blank" style="color:#3273dc"><u>Setup the Extention</u></a> section</p>
                   </li>
 
                   <li>
@@ -251,7 +251,7 @@
                 <br>
                 
                 <div class="level-set has-text-justified">
-                  <p>To make labeling process easy and smooth, we developed a novel web app to the replay collected keystroke data. The interface offers various modes for visualizing keystroke collections within each Overleaf project: by time, LaTeX file, and author. You can browse the code through this <a href="https://github.com/minnesotanlp/scholawrite/tree/main/scholawrite_system/annotation"><u><b>link</b></u></a>.</p>
+                  <p>To make labeling process easy and smooth, we developed a novel web app to the replay collected keystroke data. The interface offers various modes for visualizing keystroke collections within each Overleaf project: by time, LaTeX file, and author. You can browse the code through this <a href="https://anonymous.4open.science/r/scholawrite/scholawrite_system/annotation/annotation.py" target="_blank"><u><b>link</b></u></a>.</p>
 
                   <b>Step-by-step Annotation Procedures:</b>
                   <ol>
@@ -303,9 +303,7 @@
               <div class="content">
                 <h1 class="title is-3">ScholaWrite Dataset</h1>
                 
-                  <p >Below is a data entry of one keystroke data in scholawrite. You can find the full dataset in the 
-                    <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite" target="_blank" style="text-decoration: underline;">Huggingface data card</a>
-                  </p>
+                  <p >Below is a data entry of one keystroke data in scholawrite.</p>
                 
                 <ol id="account" class="json-container" style="margin-left: 5%;">
                   <ol class="json-lines">
@@ -327,29 +325,6 @@
         </div>
       </div>
     </section>
-
-    <!-- <section class="section hero">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered has-text-centered">
-          <div class="column is-full">
-            <div class="content">
-              <h2 class="title is-3">ScholaWrite Dataset</h2>
-
-              
-              <div class="level-set has-text-justified" style="justify-items: center;">
-                <p >
-                  Below is a data entry of one keystroke data in scholawrite. You can find the full dataset in the 
-                  <a href="https://huggingface.co/datasets/minnesotanlp/scholawrite" target="_blank" style="text-decoration: underline;">Huggingface data card</a>
-                </p>
-
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-    <!--- Dataset end -->
 
     <!--- Iterative Writing Start -->
     <section class="section hero">
@@ -409,7 +384,7 @@
                     <ol>
                       <li>
                         <b style="color:purple">Human Evaluation</b>
-                        Inspired by <a href="https://arxiv.org/abs/2307.03109">Chang et al. (2023)</a>, we conduct human evaluation to mea sure the quality of writing outputs. We asked three native English speakers with Overleaf writing experience to evaluate our finetuned model and GPT-4o on the following metrics:
+                        Inspired by <a href="https://arxiv.org/abs/2307.03109" target="_blank">Chang et al. (2023)</a>, we conduct human evaluation to mea sure the quality of writing outputs. We asked three native English speakers with Overleaf writing experience to evaluate our finetuned model and GPT-4o on the following metrics:
                         <ol>
                           <li>
                             <b>Accuracy</b>: Out of 100, the number of generated outputs that align with the provided intention.
@@ -536,14 +511,14 @@
             <div class="content">
               <h2 class="title is-3">Visualization Tool</h2>
 
-              <a href="/scholawrite/model_outputs/seed1.html">
+              <a href="/scholawrite-anonymous/model_outputs/seed1.html">
                 <img src="website\static\images\demo_page.png" alt="model output demo" width="1000" display="inline"/>
               </a>
 
               <br>
               
               <div class="level-set has-text-justified">
-                <p>We vsialized the self-iterative writing output of Llama-8B-SW and Llama-8B-Instruct on all four seeds. It is the slight modification of web page used for human evaluation in paper, which includes model names and backword navigation button. The red and strikethrough represent deletion, while green represent addition. You can access our demo page through this <a href="/scholawrite/model_outputs/seed1.html" style="color: #3273dc; text-decoration: underline;"><b>link</b></a>.</p>
+                <p>We vsialized the self-iterative writing output of Llama-8B-SW and Llama-8B-Instruct on all four seeds. It is the slight modification of web page used for human evaluation in paper, which includes model names and backword navigation button. The red and strikethrough represent deletion, while green represent addition. You can access our demo page through this <a href="/scholawrite-anonymous/model_outputs/seed1.html" style="color: #3273dc; text-decoration: underline;"><b>link</b></a>.</p>
                 <b>Here is the tutorial:</b>
                 <ol>
                   <li>

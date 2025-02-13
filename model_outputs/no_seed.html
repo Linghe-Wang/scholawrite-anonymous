@@ -7,9 +7,9 @@
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
       
-      <!--css from pdf.js and author-->
-      <link rel="stylesheet" href="/scholawrite/static/css/viewer.css">
-      <link rel="stylesheet" href="/scholawrite/static/css/latex_replay.css">
+      <!--css from pdf.js and linghe-->
+      <link rel="stylesheet" href="/scholawrite-anonymous/static/css/viewer.css">
+      <link rel="stylesheet" href="/scholawrite-anonymous/static/css/latex_replay.css">
 
       <!--js from bootstrap-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.slim.min.js"></script>
@@ -21,8 +21,8 @@
          let llama8Labels = []
          let llama8Revisions = []
       </script>
-      <!-- js from author -->
-      <script src="/scholawrite/static/script/latex_replay.js"></script>
+      <!-- js from linghe -->
+      <script src="/scholawrite-anonymous/static/script/latex_replay.js"></script>
       <title>Document</title>
    </head>
    <body>
@@ -30,6 +30,7 @@
          <div id="latexContaianer">
             <div id="latexMetaData">
                <div id="latexDataDisplay">
+                  <a href="/scholawrite-anonymous" class="" style="width: 5rem;margin-right: 1rem;"><b>Go Back</b></a>
                   <form onsubmit="return changeSeed(event)">
                      <select name="seed_doc" >
                         
