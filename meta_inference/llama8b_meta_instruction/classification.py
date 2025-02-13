@@ -68,7 +68,7 @@ def predict_intention(text, model, tokenizer):
 
 def main():
     results = []
-    dataset = load_dataset("minnesotanlp/scholawrite_test")
+    dataset = load_dataset("path/to/test")
     df = dataset["train"].to_pandas()
 
     classifier_model, classifier_tokenizer = load_classifier_model()

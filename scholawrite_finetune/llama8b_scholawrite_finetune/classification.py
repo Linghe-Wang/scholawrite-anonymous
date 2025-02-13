@@ -37,7 +37,7 @@ def process_label(predicted_label):
 
 
 def load_classifier_model():
-  model_name = "minnesotanlp/scholawrite-llama3.1-8b-classifier"
+  model_name = "path/to/hf_data-llama3.1-8b-classifier"
 
   model, tokenizer = FastLanguageModel.from_pretrained(
     model_name=model_name,
@@ -68,7 +68,7 @@ def predict_intention(text, model, tokenizer):
 
 def main():
     results = []
-    dataset = load_dataset("minnesotanlp/scholawrite_test")
+    dataset = load_dataset("path/to/hf_data_test")
     df = dataset["train"].to_pandas()
 
     classifier_model, classifier_tokenizer = load_classifier_model()

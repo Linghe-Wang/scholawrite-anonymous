@@ -1,22 +1,24 @@
-﻿# ScholaWrite-Public
+﻿# ScholaWrite: A Dataset of End-to-End Scholarly Writing Process
 
 ## Abstract
-Writing is a cognitively active task involving continuous decision-making, heavy use of working memory, and frequent switching between multiple activities.
-Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge while meeting high academic standards.
-To understand writers' cognitive thinking process, one should fully decode the *end-to-end writing data* (from scratch to final manuscript) and understand their complex cognitive mechanisms in scientific writing.
-We introduce <span style="font-variant: small-caps;">ScholaWrite</span> dataset, the first-of-its-kind keystroke logs of an end-to-end scholarly writing process, with thorough annotations of cognitive writing intentions behind each keystroke. 
-Our dataset includes $\LaTeX$-based keystroke data from five preprints with nearly 63K total text changes and annotations across 4 months of paper writing.
-Our dataset shows promising usability and applications for the future development of AI writing assistants for the research environment, which necessitate complex methods beyond LLM prompting, and supports the cognitive thinking process of scientists.
+Writing is a cognitively demanding task involving continuous decision-making, heavy use of working memory, and frequent switching between multiple activities. 
+Scholarly writing is particularly complex as it requires authors to coordinate many pieces of multiform knowledge.
+To fully understand writers' cognitive thought process, one should fully decode the <i>end-to-end writing data</i> (from individual ideas to final manuscript) and understand their complex cognitive mechanisms in scholarly writing.
+We introduce <span style="font-variant: small-caps;">ScholaWrite</span> dataset, a first-of-its-kind keystroke corpus of an end-to-end scholarly writing process for complete manuscripts, with thorough annotations of cognitive writing intentions behind each keystroke. 
+Our dataset includes \LaTeX-based keystroke data from five preprints with nearly 62K total text changes and annotations across 4 months of paper writing.
+<span style="font-variant: small-caps;">ScholaWrite</span> shows promising usability and applications (e.g., iterative self-writing) for the future development of AI writing assistants for academic research, which necessitate complex methods beyond LLM prompting.
+Our experiments clearly demonstrated the importance of collection of end-to-end writing data, rather than the final manuscript, for the development of future writing assistants to support the cognitive thinking process of scientists.
 
 
 ## About
 This branch contains following folders:
 - `scholawrite_system`: ScholaWrite system which includes data collection backend, admin page, and annotation page.
-- `scholawrite_finetune`: Fine-tuning scripts of BERT, RoBERTa, Llama-3b-instruct, and Llama-8b-instruct on our dataset.
+- `scholawrite_finetune`: Fine-tuning and inference scripts of BERT, RoBERTa, and Llama-8b-instruct on our dataset.
 - `gpt4o`: Scripts for running GPT-4o on iterative writing and intention prediction.
-- `meta_inference`: Scripts for running Llama-3b-instruct and Llama-8b-instruct baseline model on iterative writing and intention prediction.
+- `meta_inference`: Scripts for running Llama-8b-instruct baseline model on iterative writing and intention prediction.
 - `eval_tool`: Webpage for visualizing Llama-8b-instruct (baseline) and Llama-8b-SW iterative writing output for human evaluation.
 - `analysis`: Scripts for computing consine similarity between seed documents and final outputs of iterative writing, lexical diversity of final outputs from iterative writing, f1 scores in intention prediction task, and intention diversity/converage in the iterative writing.
+- `seeds`: Seed documents derived from LaTeX-formatted abstracts of four award-winning NLP papers on diverse topics
 
 ## Run ScholaWrite System
 
@@ -170,12 +172,11 @@ The fine-tuning uses **Unsloth** and **QLoRA**. Ensure your GPU has at least **1
 2. Select the appropriate folder based on the model you want to fine-tune:
     - `bert_finetune`: For fine-tuning `bert-base-uncased` or `FacebookAI/roberta-base` on a classification task.
     - `llama8b_scholawrite_finetune`: For fine-tuning `unsloth/Meta-Llama-3.2-8B-Instruct-bnb-4bit` on classification or iterative writing tasks.
-    - `llama3b_scholawrite_finetune`: For fine-tuning `unsloth/Llama-3.1-3B-Instruct-bnb-4bit` on classification tasks or iterative writing tasks.
 
 
 ### Step 3: Start Fine-Tuning
 
-#### For `llama8b_scholawrite_finetune` or `llama3b_scholawrite_finetune`
+#### For `llama8b_scholawrite_finetune`
 
 - **Iterative Writing**:
   1. Open `args.py` and set `PURPOSE = "WRITING"`.
@@ -222,21 +223,16 @@ Ensure you are inside the `scholawrite_container_2` Docker container.
 Navigate to the appropriate folder inside the Docker container.
 
 - **`scholawrite_finetune`**:
-    - `bert_finetune`: For running fine-tuned `bert-base-uncased` or `FacebookAI/roberta-base`.
-    - `llama8b_scholawrite_finetune`: For running fine-tuned `unsloth/Meta-Llama-3.2-8B-Instruct-bnb-4bit`.
-    - `llama3b_scholawrite_finetune`: For running fine-tuned `unsloth/Llama-3.1-3B-Instruct-bnb-4bit`.
+    - `bert_finetune`: For running classification on fine-tuned `bert-base-uncased` or `FacebookAI/roberta-base`.
+    - `llama8b_scholawrite_finetune`: For running classification or iterative writing on fine-tuned `unsloth/Meta-Llama-3.2-8B-Instruct-bnb-4bit`.
 
 - **`meta_inference`**:
-    - `llama8b_meta_instruction`: For baseline `unsloth/Llama-3.2-8B-Instruct-bnb-4bit`.
-    - `llama3b_meta_instruction`: For baseline `unsloth/Llama-3.1-3B-Instruct-bnb-4bit`.
+    - `llama8b_meta_instruction`: For running classification or iterative writing baseline `unsloth/Llama-3.2-8B-Instruct-bnb-4bit`.
 
 
 ### Step 3: Start Inference
-
-#### For `scholawrite_finetune/llama*` and `meta_inference/*`
-
+#### For `scholawrite_finetune/llama8b_scholawrite_finetune`
 - **Iterative Writing**:  
-    *Note: `scholawrite_finetune/llama3b_scholawrite_finetune` does not have an iterative writing script.*
     1. Ensure the model name on lines 65 and 80 of `iterative_writing.py` matches the path to the model or its name on Hugging Face.
     2. On line 15 of `iterative_writing.py`, specify a unique `output_folder_name` to avoid overwriting existing outputs.
     3. Run the script:
@@ -257,7 +253,7 @@ Navigate to the appropriate folder inside the Docker container.
   3. A CSV file with classification results will be generated in the current directory.
   4. True label is in the column 'label' and predicted label is in the column 'predicted'
 
-#### For `scholawrite_finetunebert_finetune`
+#### For `scholawrite_finetune/bert_finetune`
 - **Classification**:
     1. Run the script:
         ```bash

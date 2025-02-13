@@ -22,7 +22,7 @@ def main():
   print(accelerate.Accelerator().device)
   print(accelerate.Accelerator().state)
 
-  full_ds = load_dataset("minnesotanlp/scholawrite", revision="anonymous_data")
+  full_ds = load_dataset("path/to/dataset", revision="anonymous_data")
 
 
   RELEVANT_CLASSES = set(full_ds["train"]["label"]).union(set(full_ds["test"]["label"]))

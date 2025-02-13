@@ -61,7 +61,7 @@ def main():
       texts.append(text)
     return { "text" : texts, }
 
-  full_ds = load_dataset("minnesotanlp/scholawrite", revision="anonymous_data")
+  full_ds = load_dataset("path/to/hf_data", revision="anonymous_data")
   full_ds = full_ds.map(formatting_prompt, batched=True, num_proc=16)
 
   max_seq_length=5096

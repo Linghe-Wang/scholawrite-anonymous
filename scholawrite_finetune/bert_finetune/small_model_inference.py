@@ -28,12 +28,12 @@ login(token=HUGGINGFACE_TOKEN)
 model_name = "ROBERTA_BASE"
 
 project_ids = [
-  "6500d748909490ecba83e811",  # Debarati's project part 1, Done
-  "6578ec8845504beacf9d3dc7",  # Debarati's project part 2, Done
-  "654682f220e7d557c7e67cff",  # Anna's project, Done
-  "656a440644dec9f71f2dee44",  # Zae's project, Done
-  #"640e22cae918523bcee8ca5e", # karin's project, Done
-  #"656fadd102ae94a7686aae62"  # Artifact paper, Not done
+  "6500d748909490ecba83e811",  
+  "6578ec8845504beacf9d3dc7", 
+  "654682f220e7d557c7e67cff",  
+  "656a440644dec9f71f2dee44",  
+  #"640e22cae918523bcee8ca5e", 
+  #"656fadd102ae94a7686aae62"  
 ]
 
 TOTAL_CLASSES = 15
@@ -81,14 +81,14 @@ def add_intention_inference_instruction_input(dataset_df, include_prev_label=Fal
 
 model, tokenizer = get_model_tokenizer(model_name)
 
-#full_ds = load_dataset("minnesotanlp/scholawrite")
+#full_ds = load_dataset("path/to/hf_data")
 #train_ds = full_ds["train"].to_pandas()
 #test_ds = full_ds["test"].to_pandas()
 
 le = LabelEncoder()
-full_ds = datasets.load_dataset("minnesotanlp/scholawrite", revision="anonymous_data")
+full_ds = datasets.load_dataset("path/to/hf_data", revision="anonymous_data")
 train_ds = full_ds["train"].to_pandas()
-test_ds = datasets.load_dataset("minnesotanlp/scholawrite_test")["train"].to_pandas()
+test_ds = datasets.load_dataset("path/to/hf_data_test")["train"].to_pandas()
 
 #train_ds = train_ds[["timestamp", "before text", "after text", "project", "label"]]
 train_ds["label"] = le.fit_transform(train_ds["label"])

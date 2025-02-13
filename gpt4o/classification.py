@@ -51,7 +51,7 @@ def get_label(before_text):
 
 def main():
   results = []
-  dataset = load_dataset("minnesotanlp/scholawrite_test")
+  dataset = load_dataset("path/to/hf_data_test")
   df = dataset["train"].to_pandas()
 
   for before_text in tqdm(df["before text"].values):

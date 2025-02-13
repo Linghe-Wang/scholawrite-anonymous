@@ -40,13 +40,13 @@ def diff_linesToWords(text1, text2):
       lineEnd = -1
       while lineEnd < len(text) - 1:
         
-        # Linghe's modification begin
+        # author's modification begin
         lineEnd = re.search(r'[\n ]', text[lineStart:])
         if lineEnd:
             lineEnd = lineStart + lineEnd.start()
         else:
             lineEnd = -1
-        # linghe's modification ends
+        # author's modification ends
 
         if lineEnd == -1:
           lineEnd = len(text) - 1
